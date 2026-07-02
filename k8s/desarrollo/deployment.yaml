@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: core-service-pedidos
+  namespace: pedidos-env
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: pedidos-api
+  template:
+    metadata:
+      labels:
+        app: pedidos-api
+    spec:
+      containers:
+      - name: pedidos-api
+        image: an7hony16/pedidos-api:v1.1.2d451e6
+        ports:
+        - containerPort: 8080
+        env:
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: supabase-db-secrets
+              key: DATABASE_URL
+        livenessProbe:
+          httpGet:
+            path: /health/live
+            port: 8080
+          initialDelaySeconds: 15
+        readinessProbe:
+          httpGet:
+            path: /health/ready
+            port: 8080
