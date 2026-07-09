@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: pedidos-api
-        image: an7hony16/pedidos-api:v1.1.2d451e6
+        image: an7hony16/pedidos-api:v1.1.03fa73f
         ports:
         - containerPort: 8080
         env:
