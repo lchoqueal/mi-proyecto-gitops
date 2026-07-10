@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: pedidos-api
-        image: an7hony16/pedidos-api:v1.1.edb0047
+        image: an7hony16/pedidos-api:v1.1.e830f5a
         imagePullPolicy: Never
         ports:
         - containerPort: 3000
