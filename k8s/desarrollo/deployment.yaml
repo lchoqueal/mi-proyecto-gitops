@@ -27,6 +27,8 @@ spec:
               key: DATABASE_URL
         - name: OTEL_SERVICE_NAME
           value: "pedidos-api"
+        - name: OTEL_LOG_LEVEL
+          value: "debug"
         livenessProbe:
           httpGet:
             path: /health
