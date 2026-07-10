@@ -15,21 +15,23 @@ spec:
     spec:
       containers:
       - name: pedidos-api
-        image: an7hony16/pedidos-api:v1.1.03fa73f
+        image: an7hony16/pedidos-api:latest
         ports:
-        - containerPort: 8080
+        - containerPort: 3000
         env:
         - name: DATABASE_URL
           valueFrom:
             secretKeyRef:
               name: supabase-db-secrets
               key: DATABASE_URL
+        - name: OTEL_SERVICE_NAME
+          value: "pedidos-api"
         livenessProbe:
           httpGet:
-            path: /health/live
-            port: 8080
+            path: /health
+            port: 3000
           initialDelaySeconds: 15
         readinessProbe:
           httpGet:
-            path: /health/ready
-            port: 8080
+            path: /health
+            port: 3000

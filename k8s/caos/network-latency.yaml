@@ -1,0 +1,18 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: NetworkChaos
+metadata:
+  name: latencia-pedidos-api
+  namespace: pedidos-env
+spec:
+  action: delay
+  mode: all
+  selector:
+    namespaces:
+      - pedidos-env
+    labelSelectors:
+      app: pedidos-api
+  delay:
+    latency: "200ms"
+    correlation: "100"
+    jitter: "0ms"
+  duration: "2m"
