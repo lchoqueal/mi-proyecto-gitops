@@ -25,6 +25,36 @@ spec:
             secretKeyRef:
               name: supabase-db-secrets
               key: DATABASE_URL
+        - name: CLOUDINARY_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: supabase-db-secrets
+              key: CLOUDINARY_API_KEY
+        - name: CLOUDINARY_API_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: supabase-db-secrets
+              key: CLOUDINARY_API_SECRET
+        - name: CLOUDINARY_CLOUD_NAME
+          valueFrom:
+            secretKeyRef:
+              name: supabase-db-secrets
+              key: CLOUDINARY_CLOUD_NAME
+        - name: JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: supabase-db-secrets
+              key: JWT_SECRET
+        - name: FRONTEND_URL
+          valueFrom:
+            secretKeyRef:
+              name: supabase-db-secrets
+              key: FRONTEND_URL
+        - name: PASARELA_API_URL
+          valueFrom:
+            secretKeyRef:
+              name: supabase-db-secrets
+              key: PASARELA_API_URL
         - name: OTEL_SERVICE_NAME
           value: "pedidos-api"
         - name: OTEL_LOG_LEVEL
