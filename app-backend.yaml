@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: matvic-backend
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/lchoqueal/mi-proyecto-gitops.git
+    targetRevision: HEAD
+    path: k8s/desarrollo
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: pedidos-env
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

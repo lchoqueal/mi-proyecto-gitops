@@ -13,8 +13,8 @@ data:
       - job_name: 'matvic-backend'
         metrics_path: '/metrics'
         static_configs:
-          # Apunta al nombre del servicio de tu backend dentro del clúster de Kubernetes
-          - targets: ['pedidos-api-service.pedidos-env:3000']
+          # Apunta a la máquina física del desarrollador desde dentro del clúster de Minikube
+          - targets: ['host.minikube.internal:3000']
 ---
 apiVersion: apps/v1
 kind: Deployment
